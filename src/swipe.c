@@ -127,7 +127,7 @@ static void gestureCallback(int _device, MtTouch *contacts, int numContacts,
             consecutiveLeftFrames = 0;
             if (consecutiveRightFrames >= 2) {
                 printf("Right swipe (by velocity) detected.\n");
-                switch_workspace(SWIPE_RIGHT);
+                switch_workspace(SWIPE_LEFT);
                 triggered = true;
                 consecutiveRightFrames = 0;
             }
@@ -136,18 +136,18 @@ static void gestureCallback(int _device, MtTouch *contacts, int numContacts,
             consecutiveRightFrames = 0;
             if (consecutiveLeftFrames >= 2) {
                 printf("Left swipe (by velocity) detected.\n");
-                switch_workspace(SWIPE_LEFT);
+                switch_workspace(SWIPE_RIGHT);
                 triggered = true;
                 consecutiveLeftFrames = 0;
             }
         }
         else if (delta > SWIPE_THRESHOLD) {
             printf("Right swipe (by position) detected.\n");
-            switch_workspace(SWIPE_RIGHT);
+            switch_workspace(SWIPE_LEFT);
             triggered = true;
         } else if (delta < -SWIPE_THRESHOLD) {
             printf("Left swipe (by position) detected.\n");
-            switch_workspace(SWIPE_LEFT);
+            switch_workspace(SWIPE_RIGHT);
             triggered = true;
         }
 
